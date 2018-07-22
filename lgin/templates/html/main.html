@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+<form  method="post">
+	<h4>Username</h4>
+	<input type="text" name="username">
+	<h4>Password</h4>
+	<input type="Password" name="password">
+	<br>
+	<br>
+	<input type="submit" name="Login" value="Login">
+	<br>
+	<br>
+	not Registered?
+	<br>
+	<br>
+	<a href="{% url 'reg' %}">Register</a>
+</form>
+</body>
+</html>
