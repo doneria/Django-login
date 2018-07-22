@@ -5,22 +5,11 @@
 </head>
 <body>
 <form method="post">
-	<h6>FirstName:</h6>
-	<input type="text" name="fname">
-	<h6>LastName:</h6>
-	<input type="text" name="lname">
-	<h6>Email:</h6>
-	<input type="email" name="email">
-	<h6>Password:</h6>
-	<input type="Password" name="password">
-	<h6>DOB:</h6>
-	<input type="date" name="bday">
-	<br>
-	<input type="submit" name="reg." value="register">
-	<br>
-	<br>
-	<a href="{% url 'log' %}">Back to login</a>
-
+{% csrf_token %}
+{{ form.as_p }}	
+<br>
+<input type="submit" name="submit" value="Register">	
 </form>
+<a href="{% url 'log' %}">Back to login</a>
 </body>
 </html>

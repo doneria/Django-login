@@ -4,8 +4,7 @@ from lgin import views as login_views
 
 urlpatterns = [
 
-url(r'^register/$',register_views.register_form, name='reg'),
-url(r'^login/$',login_views.login_form, name='log'),
-
+url(r'^register/$',register_views.register_form.as_view(), name='reg'),
+url(r'^login/$',login_views.login_form.as_view(), name='log'),
 
 ]
