@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 class USER(models.Model):
 	FirstName=models.CharField(max_length=30)

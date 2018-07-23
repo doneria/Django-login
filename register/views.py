@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from django.views.generic import TemplateView
 from django.urls import reverse
 from register.forms import RegistrationForm
+from register.models import USER
+from django import forms
+from django.http import HttpResponse
 
 class register_form(TemplateView):
 
@@ -13,11 +16,20 @@ class register_form(TemplateView):
 	def post(self,request):
 		form=RegistrationForm(request.POST)
 		if form.is_valid():
-			form.save()
+			userObj=form.cleaned_data
+			email=userObj['Email']
+			password=userObj['Password']
 			text=form.cleaned_data['FirstName']
+			if not(USER.objects.filter(Email=email).exists() or USER.objects.filter(Password=password)):
+				form.save()
+			else:
+				return HttpResponse('Looks like a username with that email or password already exists')
+		
+		else:
 			form=RegistrationForm()
-			
 
-		args={'form':form, 'text':text}	
+
+
+		args={'form':form,'text':text}	
 		return render(request,'html/register.html',args)
 
