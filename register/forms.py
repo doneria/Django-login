@@ -10,6 +10,7 @@ class RegistrationForm(forms.ModelForm):
 		fields=('FirstName','LastName','Email','Password','DOB')
 		widgets={
 		'Password':forms.PasswordInput(),
+		
 		}
 
 

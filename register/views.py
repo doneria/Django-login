@@ -19,7 +19,7 @@ class register_form(TemplateView):
 			userObj=form.cleaned_data
 			email=userObj['Email']
 			password=userObj['Password']
-			text=form.cleaned_data['FirstName']
+			text=''
 			if not(USER.objects.filter(Email=email).exists() or USER.objects.filter(Password=password)):
 				form.save()
 			else:
